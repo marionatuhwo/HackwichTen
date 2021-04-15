@@ -10,33 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //sets up the initial conditions for the app upon launch
-        myLabel.text = "Index One selected on the Segmented Control"
-    }
-    
-    
-    @IBAction func segmentedControlPressed(_ sender: Any) {
-        //switch statement
-        switch segmentedControl.selectedSegmentIndex
+    @IBOutlet weak var textField: UITextField!
+        @IBOutlet weak var myLabel: UILabel!
+        
+        @IBOutlet weak var segmentedControl: UISegmentedControl!
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // Do any additional setup after loading the view.
+            myLabel.text = ""
+            
+            segmentedControl.selectedSegmentIndex = -1
+        }
+
+        @IBAction func segmentedControlPressed(_ sender: Any) {
+            
+            switch segmentedControl.selectedSegmentIndex
             {
             case 0:
-             myLabel.text = "Index One selected on the Segmented Control"
+                self.myLabel.text = textField.text
             
             case 1:
-               myLabel.text = "Index Two selected. I got this!"
+                self.myLabel.text = textField.text
+                
+            case 2:
+                self.myLabel.text = textField.text
             default:
                 break
             }
-
-        
-        
+        }
     }
-    
 
-}
+
 
